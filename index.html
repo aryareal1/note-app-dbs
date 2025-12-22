@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Note Keep</title>
+    <!-- <link rel="shortcut icon" href="icon.svg"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css"
+    />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      .container {
+        width: 390px;
+        /* background-color: antiquewhite; */
+        margin-inline: auto;
+        text-align: center;
+        margin-top: 5rem;
+      }
+
+      .container i {
+        font-size: 2rem;
+        color: #19c3e6;
+        background-color: #e1f5f9;
+        padding: 10px;
+        border-radius: 8pt;
+        display: inline-block;
+      }
+      .container h1 {
+        font-size: 2rem;
+      }
+      .container p {
+        width: 20rem;
+        margin-inline: auto;
+      }
+
+      .container header {
+        margin-bottom: 3.5rem;
+      }
+
+      .input-container {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        gap: 1.5rem;
+      }
+
+      .input-container label {
+        font-weight: bold;
+      }
+
+      .input-container input {
+        padding-inline: 0.6rem;
+        padding-block: 0.8rem;
+        border: 1px solid #c4c4c4;
+        border-radius: 8pt;
+        font-size: medium;
+        margin-top: 0.25rem;
+        display: block;
+        width: calc(100% - 1.4rem);
+      }
+
+      .pw-text {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .pw-text a {
+        color: #19c3e6;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+
+      a:hover {
+        color: #17afcd;
+      }
+
+      .login {
+        display: block;
+        width: 100%;
+        margin-top: 2.5rem;
+        padding: 0.9rem;
+        font-weight: 600;
+        font-size: 1rem;
+        background-color: #19c3e6;
+        color: white;
+        border: none;
+        border-radius: 8pt;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .login:hover {
+        background-color: #17afcd;
+        transform: scale(1.01);
+      }
+
+      footer p {
+        color: #4e8b97;
+      }
+
+      footer a {
+        color: #19c3e6;
+        margin-inline: 5px;
+        font-weight: bold;
+        transition: all 0.2s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <header>
+      <div class="icon">
+        <img src="icon.svg" alt="Note Keep" width="25" />
+      </div>
+      <h1>Note Keep</h1>
+      <p>Enter your email and password to access your note</p>
+    </header> -->
+    <div class="container">
+      <header>
+        <i class="hgi hgi-stroke hgi-dashboard-square-edit"></i>
+        <h1>Note Keep</h1>
+        <p style="color: #4e8b97">
+          Enter your email and password to access your notes
+        </p>
+      </header>
+
+      <form action="">
+        <div class="input-container">
+          <div>
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="name@example.com"
+            />
+          </div>
+          <div>
+            <div class="pw-text">
+              <label for="password">Password</label>
+              <a href="/forgot-password.html">Forgot Password?</a>
+            </div>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter password"
+            />
+          </div>
+        </div>
+
+        <input type="submit" value="Log In" class="login" />
+      </form>
+
+      <footer>
+        <p>
+          Don't have an account?
+          <a href="/register.html" class="signup">Sign Up</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

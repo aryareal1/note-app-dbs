@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Note Keep</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css"
+    />
+    <link rel="stylesheet" href="globals.css" />
+  </head>
+  <style>
+    .pw-text {
+      display: flex;
+      justify-content: space-between;
+    }
+    .pw-text a {
+      font-weight: 600;
+      text-decoration: none;
+    }
+  </style>
+  <body>
+    <header>
+      <i class="hgi hgi-stroke hgi-dashboard-square-edit logo"></i>
+      <h1>Note Keep</h1>
+      <p>Enter your email and password to access your notes</p>
+    </header>
+
+    <main>
+      <form action="callback.html">
+        <div class="form-container">
+          <div>
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="name@example.com"
+              required
+              oninput="onInput()"
+            />
+            <div class="error"></div>
+          </div>
+          <div>
+            <div class="pw-text">
+              <label for="password">Password</label>
+              <a href="forgot-password.html">Forgot Password?</a>
+            </div>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter password"
+              required
+              oninput="onInput()"
+            />
+            <div class="error"></div>
+          </div>
+        </div>
+
+        <input type="submit" id="submit" value="Log In" class="login" />
+        <input type="text" name="type" value="login" hidden />
+      </form>
+    </main>
+
+    <footer>
+      <p>
+        Don't have an account?
+        <a href="register.html" class="signup">Sign Up</a>
+      </p>
+    </footer>
+
+    <script>
+      /** @type {HTMLDivElement} */
+      const _emailError = document.getElementsByClassName("error")[0];
+      /** @type {HTMLDivElement} */
+      const _pwError = document.getElementsByClassName("error")[1];
+
+      /** @type {HTMLInputElement} */
+      const _email = document.getElementById("email");
+      /** @type {HTMLInputElement} */
+      const _password = document.getElementById("password");
+      /** @type {HTMLInputElement} */
+      const _submit = document.getElementById("submit");
+
+      const url = new URL(location.href);
+      const error = url.searchParams.get("e");
+      const email = url.searchParams.get("m");
+
+      if (email) _email.value = email;
+
+      if (error) {
+        switch (error) {
+          case "INVALID_EMAIL":
+            _emailError.innerText = "Email isn't registered!";
+            break;
+          case "INVALID_PASSWORD":
+            _pwError.innerText = "Invalid password!";
+            break;
+        }
+        history.replaceState(null, '', 'login.html')
+      }
+
+      function onInput() {
+        _emailError.innerText = "";
+        _pwError.innerText = "";
+      }
+    </script>
+  </body>
+</html>

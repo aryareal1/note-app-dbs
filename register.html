@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Note Keep</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css"
+    />
+    <link rel="stylesheet" href="globals.css" />
+    <style>
+      .no-account {
+        display: block;
+        margin-block: 0.5rem;
+        color: #4e8b97;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <i class="hgi hgi-stroke hgi-dashboard-square-edit logo"></i>
+      <h1>Get Started</h1>
+      <p>Create a free account to save your notes and access them anywhere</p>
+    </header>
+
+    <main>
+      <form action="callback.html" onsubmit="onSubmit()">
+        <div class="form-container">
+          <div>
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="name@example.com"
+              required
+              oninput="onInput()"
+            />
+            <div class="error"></div>
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter password"
+              required
+              oninput="onInput()"
+            />
+            <a href="#" class="no-account">Don't have an account?</a>
+          </div>
+          <div>
+            <label for="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              name="confirm-password"
+              id="confirm-password"
+              placeholder="Re-enter password"
+              required
+              oninput="onInput()"
+            />
+            <div class="error"></div>
+          </div>
+        </div>
+
+        <input type="submit" id="submit" value="Sign Up" />
+        <input type="text" name="type" value="register" hidden />
+      </form>
+    </main>
+
+    <footer>
+      <p>
+        Already a member?
+        <a href="login.html" class="signup">Log In</a>
+      </p>
+    </footer>
+
+    <script>
+      /** @type {HTMLDivElement} */
+      const _emailError = document.getElementsByClassName("error")[0];
+      /** @type {HTMLDivElement} */
+      const _pwError = document.getElementsByClassName("error")[1];
+
+      /** @type {HTMLInputElement} */
+      const _email = document.getElementById("email");
+      /** @type {HTMLInputElement} */
+      const _password = document.getElementById("password");
+      /** @type {HTMLInputElement} */
+      const _confirmPassword = document.getElementById("confirm-password");
+      /** @type {HTMLInputElement} */
+      const _submit = document.getElementById("submit");
+
+      function onInput() {
+        let isError = false;
+
+        if (!_password.value || !_confirmPassword.value)
+          _pwError.innerText = "";
+        else if (_password.value !== _confirmPassword.value) {
+          _pwError.innerText = "Password dosen't match!";
+          isError = true;
+        } else _pwError.innerText = "";
+
+        if (
+          JSON.parse(localStorage.getItem("registeredAccounts") ?? "[]").some(
+            (v) => v.email === _email.value
+          )
+        ) {
+          _emailError.innerText = "Email already registered!";
+          isError = true;
+        } else _emailError.innerText = "";
+
+        if (
+          isError &&
+          _email.value &&
+          _password.value &&
+          _confirmPassword.value
+        )
+          _submit.disabled = true;
+        else _submit.disabled = false;
+      }
+
+      function onSubmit(e) {}
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+* {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 90%;
+  max-width: 24rem;
+  margin: 2rem auto;
+  background-color: #f8fbfc;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+header p {
+  color: #4e8b97;
+  width: 80%;
+}
+
+.logo {
+  font-size: 2rem;
+  color: #19c3e6;
+  background-color: #e1f5f9;
+  padding: 10px;
+  border-radius: 8pt;
+  width: fit-content;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"]:not([hidden]),
+input[type="email"],
+input[type="password"],
+textarea {
+  display: block;
+  width: calc(100% - 1.4rem);
+  padding-inline: 0.6rem;
+  padding-block: 1rem;
+  border: 1px solid #c4c4c4;
+  border-radius: 8pt;
+  font-size: medium;
+  margin-top: 0.25rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="submit"] {
+  display: block;
+  width: 100%;
+  margin-top: 4rem;
+  padding: 0.9rem;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #19c3e6;
+  color: white;
+  border: none;
+  border-radius: 8pt;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+input[type="submit"]:disabled {
+  background-color: #a3e1ed;
+  color: white;
+  cursor: not-allowed;
+}
+
+footer {
+  text-align: center;
+  margin-top: 1rem;
+  color: #4e8b97;
+}
+
+a {
+  color: #19c3e6;
+  transition: all 0.2s ease;
+}
+
+footer a {
+  margin-inline: 5px;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 0.2rem;
+}

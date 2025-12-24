@@ -1,4 +1,4 @@
-const user = JSON.parse(atob(Cookies.get("user") ?? "") ?? "{}");
+const user = JSON.parse(atob(Cookies.get("user") ?? "") || "{}");
 /** @type {any[]} */
 const registeredAccounts = JSON.parse(
   localStorage.getItem("registeredAccounts") ?? "[]"
